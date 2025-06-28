@@ -66,12 +66,18 @@ const Careers = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: idx * 0.1 }}
-                  className="card p-6"
+                  className="relative overflow-hidden rounded-2xl shadow-2xl border border-white/30 bg-white/30 dark:bg-gray-900/40 backdrop-blur-lg hover:scale-105 hover:shadow-3xl transition-all duration-300 group p-6"
                 >
-                  <h3 className="text-xl font-semibold text-primary-600 mb-2">{job.title}</h3>
-                  <div className="text-sm text-gray-500 mb-2">{job.type} | {job.location}</div>
-                  <p className="text-gray-700 mb-4">{job.description}</p>
-                  <span className="inline-block bg-primary-100 text-primary-600 px-3 py-1 rounded-full text-xs font-medium">Apply Below</span>
+                  <div className="absolute inset-0 pointer-events-none z-0">
+                    <div className="w-full h-full bg-gradient-to-br from-blue-200/30 via-purple-200/20 to-cyan-200/10 dark:from-blue-900/30 dark:via-purple-900/20 dark:to-cyan-900/10 rounded-2xl" />
+                  </div>
+                  <div className="relative z-10">
+                    <h3 className="text-xl font-semibold text-primary-600 dark:text-primary-400 mb-2 group-hover:text-primary-500 transition-colors duration-200">{job.title}</h3>
+                    <div className="text-sm text-gray-500 dark:text-gray-300 mb-2">{job.type} | {job.location}</div>
+                    <p className="text-gray-700 dark:text-gray-200 mb-4">{job.description}</p>
+                    <span className="inline-block bg-primary-100/80 dark:bg-primary-900/40 text-primary-600 dark:text-primary-300 px-3 py-1 rounded-full text-xs font-medium">Apply Below</span>
+                  </div>
+                  <div className="absolute left-1/2 -bottom-2 w-32 h-8 bg-gradient-to-r from-blue-400/30 via-purple-400/20 to-cyan-400/10 blur-xl opacity-60 -translate-x-1/2 group-hover:opacity-90 transition-all duration-300" />
                 </motion.div>
               ))}
             </div>

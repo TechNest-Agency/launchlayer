@@ -82,38 +82,44 @@ const Events = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="card overflow-hidden group"
+                  className="relative overflow-hidden rounded-2xl shadow-2xl border border-white/30 bg-white/30 dark:bg-gray-900/40 backdrop-blur-lg hover:scale-105 hover:shadow-3xl transition-all duration-300 group"
                 >
-                  <div className="h-32 bg-gradient-to-br from-primary-500 to-secondary-500 flex items-center justify-center">
-                    <FaCalendar className="w-8 h-8 text-white" />
+                  <div className="absolute inset-0 pointer-events-none z-0">
+                    <div className="w-full h-full bg-gradient-to-br from-blue-200/30 via-purple-200/20 to-cyan-200/10 dark:from-blue-900/30 dark:via-purple-900/20 dark:to-cyan-900/10 rounded-2xl" />
                   </div>
-                  <div className="p-6">
-                    <div className="flex items-center justify-between mb-3">
-                      <span className="text-sm font-medium text-primary-600 bg-primary-50 px-3 py-1 rounded-full">
-                        {event.type}
-                      </span>
-                      <span className="text-sm text-gray-500">{event.attendees} attendees</span>
+                  <div className="relative z-10">
+                    <div className="h-32 bg-gradient-to-br from-primary-500 to-secondary-500 flex items-center justify-center rounded-t-2xl">
+                      <FaCalendar className="w-8 h-8 text-white" />
                     </div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-3">{event.title}</h3>
-                    <p className="text-gray-600 mb-4">{event.description}</p>
-                    <div className="space-y-2 text-sm text-gray-500">
-                      <div className="flex items-center">
-                        <FaCalendar className="w-4 h-4 mr-2" />
-                        {event.date}
+                    <div className="p-6">
+                      <div className="flex items-center justify-between mb-3">
+                        <span className="text-sm font-medium text-primary-600 bg-primary-50 px-3 py-1 rounded-full">
+                          {event.type}
+                        </span>
+                        <span className="text-sm text-gray-500">{event.attendees} attendees</span>
                       </div>
-                      <div className="flex items-center">
-                        <FaClock className="w-4 h-4 mr-2" />
-                        {event.time}
+                      <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-primary-500 transition-colors duration-200">{event.title}</h3>
+                      <p className="text-gray-600 dark:text-gray-200 mb-4">{event.description}</p>
+                      <div className="space-y-2 text-sm text-gray-500 dark:text-gray-300">
+                        <div className="flex items-center">
+                          <FaCalendar className="w-4 h-4 mr-2" />
+                          {event.date}
+                        </div>
+                        <div className="flex items-center">
+                          <FaClock className="w-4 h-4 mr-2" />
+                          {event.time}
+                        </div>
+                        <div className="flex items-center">
+                          <FaMapMarkerAlt className="w-4 h-4 mr-2" />
+                          {event.location}
+                        </div>
                       </div>
-                      <div className="flex items-center">
-                        <FaMapMarkerAlt className="w-4 h-4 mr-2" />
-                        {event.location}
-                      </div>
+                      <button className="w-full mt-4 btn-primary">
+                        Register Now
+                      </button>
                     </div>
-                    <button className="w-full mt-4 btn-primary">
-                      Register Now
-                    </button>
                   </div>
+                  <div className="absolute left-1/2 -bottom-2 w-32 h-8 bg-gradient-to-r from-blue-400/30 via-purple-400/20 to-cyan-400/10 blur-xl opacity-60 -translate-x-1/2 group-hover:opacity-90 transition-all duration-300" />
                 </motion.div>
               ))}
             </div>
@@ -127,38 +133,44 @@ const Events = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="card overflow-hidden opacity-75"
+                  className="relative overflow-hidden rounded-2xl shadow-2xl border border-white/30 bg-white/30 dark:bg-gray-900/40 backdrop-blur-lg opacity-75 group"
                 >
-                  <div className="h-32 bg-gray-400 flex items-center justify-center">
-                    <FaCalendar className="w-8 h-8 text-white" />
+                  <div className="absolute inset-0 pointer-events-none z-0">
+                    <div className="w-full h-full bg-gradient-to-br from-blue-200/30 via-purple-200/20 to-cyan-200/10 dark:from-blue-900/30 dark:via-purple-900/20 dark:to-cyan-900/10 rounded-2xl" />
                   </div>
-                  <div className="p-6">
-                    <div className="flex items-center justify-between mb-3">
-                      <span className="text-sm font-medium text-gray-600 bg-gray-100 px-3 py-1 rounded-full">
-                        {event.type}
-                      </span>
-                      <span className="text-sm text-gray-500">{event.attendees} attendees</span>
+                  <div className="relative z-10">
+                    <div className="h-32 bg-gray-400 flex items-center justify-center rounded-t-2xl">
+                      <FaCalendar className="w-8 h-8 text-white" />
                     </div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-3">{event.title}</h3>
-                    <p className="text-gray-600 mb-4">{event.description}</p>
-                    <div className="space-y-2 text-sm text-gray-500">
-                      <div className="flex items-center">
-                        <FaCalendar className="w-4 h-4 mr-2" />
-                        {event.date}
+                    <div className="p-6">
+                      <div className="flex items-center justify-between mb-3">
+                        <span className="text-sm font-medium text-gray-600 bg-gray-100 px-3 py-1 rounded-full">
+                          {event.type}
+                        </span>
+                        <span className="text-sm text-gray-500">{event.attendees} attendees</span>
                       </div>
-                      <div className="flex items-center">
-                        <FaClock className="w-4 h-4 mr-2" />
-                        {event.time}
+                      <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">{event.title}</h3>
+                      <p className="text-gray-600 dark:text-gray-200 mb-4">{event.description}</p>
+                      <div className="space-y-2 text-sm text-gray-500 dark:text-gray-300">
+                        <div className="flex items-center">
+                          <FaCalendar className="w-4 h-4 mr-2" />
+                          {event.date}
+                        </div>
+                        <div className="flex items-center">
+                          <FaClock className="w-4 h-4 mr-2" />
+                          {event.time}
+                        </div>
+                        <div className="flex items-center">
+                          <FaMapMarkerAlt className="w-4 h-4 mr-2" />
+                          {event.location}
+                        </div>
                       </div>
-                      <div className="flex items-center">
-                        <FaMapMarkerAlt className="w-4 h-4 mr-2" />
-                        {event.location}
-                      </div>
+                      <button className="w-full mt-4 btn-outline" disabled>
+                        Event Completed
+                      </button>
                     </div>
-                    <button className="w-full mt-4 btn-outline" disabled>
-                      Event Completed
-                    </button>
                   </div>
+                  <div className="absolute left-1/2 -bottom-2 w-32 h-8 bg-gradient-to-r from-blue-400/30 via-purple-400/20 to-cyan-400/10 blur-xl opacity-60 -translate-x-1/2 group-hover:opacity-90 transition-all duration-300" />
                 </motion.div>
               ))}
             </div>

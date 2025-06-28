@@ -46,10 +46,10 @@ const Footer = () => {
   };
 
   const socialLinks = [
-    { icon: FaFacebook, href: '#', label: 'Facebook' },
+    { icon: FaFacebook, href: 'https://www.facebook.com/profile.php?id=61577194005964', label: 'Facebook' },
     { icon: FaTwitter, href: '#', label: 'Twitter' },
-    { icon: FaLinkedin, href: '#', label: 'LinkedIn' },
-    { icon: FaInstagram, href: '#', label: 'Instagram' },
+    { icon: FaLinkedin, href: 'https://www.linkedin.com/company/launchlayers/?viewAsMember=true', label: 'LinkedIn' },
+    { icon: FaInstagram, href: '/', label: 'Instagram' },
     { icon: FaGithub, href: '#', label: 'GitHub' }
   ];
 

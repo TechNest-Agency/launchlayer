@@ -67,19 +67,25 @@ const Support = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="text-center"
+                  className="relative text-center rounded-2xl p-8 shadow-xl border border-white/30 bg-white/30 dark:bg-gray-900/40 backdrop-blur-lg hover:scale-105 hover:shadow-2xl transition-all duration-300 group overflow-hidden"
                 >
-                  <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <option.icon className="w-8 h-8 text-primary-600" />
+                  <div className="absolute inset-0 pointer-events-none z-0">
+                    <div className="w-full h-full bg-gradient-to-br from-blue-200/30 via-purple-200/20 to-cyan-200/10 dark:from-blue-900/30 dark:via-purple-900/20 dark:to-cyan-900/10 rounded-2xl" />
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">{option.title}</h3>
-                  <p className="text-gray-600 mb-4">{option.description}</p>
-                  <a
-                    href={option.contact.startsWith('http') ? option.contact : `mailto:${option.contact}`}
-                    className="text-primary-600 hover:text-primary-700 font-medium"
-                  >
-                    {option.contact}
-                  </a>
+                  <div className="relative z-10">
+                    <div className="w-16 h-16 bg-gradient-to-br from-blue-500 via-purple-500 to-cyan-400 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                      <option.icon className="w-8 h-8 text-white" />
+                    </div>
+                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-primary-500 transition-colors duration-200">{option.title}</h3>
+                    <p className="text-gray-600 dark:text-gray-200 mb-4">{option.description}</p>
+                    <a
+                      href={option.contact.startsWith('http') ? option.contact : `mailto:${option.contact}`}
+                      className="text-primary-600 hover:text-primary-700 font-medium"
+                    >
+                      {option.contact}
+                    </a>
+                  </div>
+                  <div className="absolute left-1/2 -bottom-2 w-32 h-8 bg-gradient-to-r from-blue-400/30 via-purple-400/20 to-cyan-400/10 blur-xl opacity-60 -translate-x-1/2 group-hover:opacity-90 transition-all duration-300" />
                 </motion.div>
               ))}
             </div>

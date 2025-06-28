@@ -39,7 +39,7 @@ const AboutSection = () => {
   ];
 
   return (
-    <section className="section-padding bg-white">
+    <section className="section-padding bg-transparent">
       <div className="container-custom">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Content */}

@@ -83,9 +83,12 @@ const CaseStudies = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.8, delay: index * 0.2 }}
-                  className="card overflow-hidden"
+                  className="relative overflow-hidden rounded-3xl p-0 shadow-2xl border border-white/30 bg-white/30 dark:bg-gray-900/40 backdrop-blur-lg hover:scale-[1.02] hover:shadow-3xl transition-all duration-300 group"
                 >
-                  <div className="p-8">
+                  <div className="absolute inset-0 pointer-events-none z-0">
+                    <div className="w-full h-full bg-gradient-to-br from-blue-200/30 via-purple-200/20 to-cyan-200/10 dark:from-blue-900/30 dark:via-purple-900/20 dark:to-cyan-900/10 rounded-3xl" />
+                  </div>
+                  <div className="relative z-10 p-8">
                     <div className="grid lg:grid-cols-2 gap-8">
                       <div>
                         <div className="flex items-center space-x-4 mb-4">
@@ -94,36 +97,33 @@ const CaseStudies = () => {
                           </span>
                           <span className="text-sm text-gray-500">{study.duration}</span>
                         </div>
-                        <h2 className="text-2xl font-bold text-gray-900 mb-4">{study.title}</h2>
-                        <p className="text-lg text-gray-600 mb-6">
+                        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">{study.title}</h2>
+                        <p className="text-lg text-gray-600 dark:text-gray-200 mb-6">
                           <strong>Client:</strong> {study.client}
                         </p>
-                        
                         <div className="space-y-4 mb-6">
                           <div>
-                            <h3 className="font-semibold text-gray-900 mb-2">The Challenge</h3>
-                            <p className="text-gray-600">{study.challenge}</p>
+                            <h3 className="font-semibold text-gray-900 dark:text-white mb-2">The Challenge</h3>
+                            <p className="text-gray-600 dark:text-gray-200">{study.challenge}</p>
                           </div>
                           <div>
-                            <h3 className="font-semibold text-gray-900 mb-2">Our Solution</h3>
-                            <p className="text-gray-600">{study.solution}</p>
+                            <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Our Solution</h3>
+                            <p className="text-gray-600 dark:text-gray-200">{study.solution}</p>
                           </div>
                         </div>
-
                         <div className="flex flex-wrap gap-2 mb-6">
                           {study.technologies.map((tech, techIndex) => (
                             <span
                               key={techIndex}
-                              className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded"
+                              className="text-xs bg-white/60 dark:bg-gray-800/60 text-gray-700 dark:text-gray-200 px-2 py-1 rounded shadow"
                             >
                               {tech}
                             </span>
                           ))}
                         </div>
                       </div>
-
                       <div>
-                        <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center">
+                        <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
                           <FaChartLine className="w-5 h-5 text-secondary-500 mr-2" />
                           Results Achieved
                         </h3>
@@ -131,13 +131,14 @@ const CaseStudies = () => {
                           {study.results.map((result, resultIndex) => (
                             <li key={resultIndex} className="flex items-start">
                               <FaShieldAlt className="w-4 h-4 text-secondary-500 mt-1 mr-3 flex-shrink-0" />
-                              <span className="text-gray-700">{result}</span>
+                              <span className="text-gray-700 dark:text-gray-200">{result}</span>
                             </li>
                           ))}
                         </ul>
                       </div>
                     </div>
                   </div>
+                  <div className="absolute left-1/2 -bottom-2 w-40 h-10 bg-gradient-to-r from-blue-400/30 via-purple-400/20 to-cyan-400/10 blur-xl opacity-60 -translate-x-1/2 group-hover:opacity-90 transition-all duration-300" />
                 </motion.div>
               ))}
             </div>

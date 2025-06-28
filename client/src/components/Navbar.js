@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useCart } from '../context/CartContext';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
@@ -18,7 +19,7 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMoreOpen, setIsMoreOpen] = useState(false);
   const [isMobileMoreOpen, setIsMobileMoreOpen] = useState(false);
-  const [cart, setCart] = useState([]);
+  const { cart } = useCart();
   const location = useLocation();
   const { darkMode, toggleDarkMode } = useDarkMode();
 
@@ -48,44 +49,7 @@ const Navbar = () => {
     }
   }, [isOpen]);
 
-  // Load cart from localStorage
-  useEffect(() => {
-    const savedCart = localStorage.getItem('launchlayer-cart');
-    if (savedCart) {
-      try {
-        const parsedCart = JSON.parse(savedCart);
-        setCart(parsedCart);
-      } catch (error) {
-        console.error('Error parsing cart from localStorage:', error);
-        setCart([]);
-      }
-    }
-  }, []);
-
-  // Listen for cart updates from other components
-  useEffect(() => {
-    const handleCartUpdate = () => {
-      const savedCart = localStorage.getItem('launchlayer-cart');
-      if (savedCart) {
-        try {
-          const parsedCart = JSON.parse(savedCart);
-          setCart(parsedCart);
-        } catch (error) {
-          setCart([]);
-        }
-      } else {
-        setCart([]);
-      }
-    };
-
-    window.addEventListener('storage', handleCartUpdate);
-    window.addEventListener('cartUpdated', handleCartUpdate);
-    
-    return () => {
-      window.removeEventListener('storage', handleCartUpdate);
-      window.removeEventListener('cartUpdated', handleCartUpdate);
-    };
-  }, []);
+  // Cart state is now managed by context
 
   const cartCount = cart.length;
 
@@ -117,8 +81,8 @@ const Navbar = () => {
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full ${
       isScrolled 
-        ? 'bg-white shadow-2xl border-b border-gray-200/60 dark:bg-gray-900 dark:border-gray-700' 
-        : 'bg-white dark:bg-gray-900'
+        ? 'bg-white/90 shadow-2xl border-b border-gray-200/60 dark:bg-gray-900/90 dark:border-gray-700' 
+        : 'bg-transparent dark:bg-transparent'
     }`}>
       <div className="container-custom">
         <div className="flex items-center justify-between h-16 md:h-20 min-w-0">
