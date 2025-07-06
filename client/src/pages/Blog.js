@@ -84,7 +84,7 @@ const Blog = () => {
       }
     };
     fetchPosts();
-  }, []);
+  },);
 
   return (
     <>

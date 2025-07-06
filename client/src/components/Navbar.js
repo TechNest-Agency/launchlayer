@@ -5,10 +5,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { 
   FaBars, 
   FaTimes, 
-  FaRocket, 
   FaChevronDown,
   FaShoppingCart,
-  FaArrowLeft,
   FaMoon,
   FaSun
 } from 'react-icons/fa';
