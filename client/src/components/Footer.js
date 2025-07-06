@@ -59,8 +59,11 @@ const Footer = () => {
         {/* Company Info - Full Width */}
         <div className="mb-8 sm:mb-12">
           <Link to="/" className="flex items-center space-x-2 sm:space-x-3 mb-4 sm:mb-6">
-            <FaRocket className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-primary-600 flex-shrink-0" />
-            <span className="text-xl sm:text-2xl font-bold break-words">LaunchLayer</span>
+            <img src="/logo.png" alt="LaunchLayer Logo" className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 object-contain flex-shrink-0" />
+            <span className="break-words" style={{ fontFamily: 'Garamond, serif', fontWeight: 'bold', fontSize: '1.5rem', lineHeight: '2rem' }}>
+              <span style={{ color: '#4477a6' }}>Launch</span>
+              <span style={{ color: '#4579a7' }}>Layer</span>
+            </span>
           </Link>
           <p className="text-gray-300 mb-4 sm:mb-6 max-w-sm leading-relaxed text-sm sm:text-base break-words">
             Empowering businesses with innovative technology solutions to help them thrive in the digital age.

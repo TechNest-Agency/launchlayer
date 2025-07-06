@@ -88,16 +88,11 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16 md:h-20 min-w-0">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2 min-w-0 flex-shrink-0 group">
-            <div className="relative flex-shrink-0">
-              <FaRocket className="w-7 h-7 md:w-8 md:h-8 text-primary-600 group-hover:scale-110 transition-transform duration-200" />
-              <motion.div
-                className="absolute -top-1 -right-1 w-2.5 h-2.5 md:w-3 md:h-3 bg-secondary-500 rounded-full shadow-lg"
-                animate={{ scale: [1, 1.2, 1] }}
-                transition={{ duration: 2, repeat: Infinity }}
-              />
-            </div>
+            <img src="/logo.png" alt="LaunchLayer Logo" className="w-12 h-12 md:w-16 md:h-16 object-contain" />
             <span className="text-lg md:text-2xl font-extrabold text-gradient truncate tracking-tight group-hover:tracking-wider transition-all duration-200">
-              LaunchLayer
+              <span style={{ fontFamily: 'Garamond, serif' }}>
+                <span style={{ color: '#4477a6' }}>Launch</span><span style={{ color: '#4579a7' }}>Layer</span>
+              </span>
             </span>
           </Link>
 
@@ -225,8 +220,10 @@ const Navbar = () => {
           >
             <div className="flex items-center justify-between mb-4">
               <Link to="/" className="flex items-center space-x-2 min-w-0 flex-shrink-0" onClick={() => setIsOpen(false)}>
-                <FaRocket className="w-6 h-6 text-primary-600" />
-                <span className="text-lg font-bold text-gradient truncate">LaunchLayer</span>
+                <img src="/logo.png" alt="LaunchLayer Logo" className="w-10 h-10 md:w-12 md:h-12 object-contain" />
+                <span className="text-lg font-bold text-gradient truncate" style={{ fontFamily: 'Garamond, serif' }}>
+                  <span style={{ color: '#4477a6' }}>Launch</span><span style={{ color: '#4579a7' }}>Layer</span>
+                </span>
               </Link>
               <button
                 className="p-2 rounded-lg hover:bg-primary-100/60 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-400"
